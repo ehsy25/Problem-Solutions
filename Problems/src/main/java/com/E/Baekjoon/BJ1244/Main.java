@@ -44,8 +44,6 @@ public class Main {
             }
         }
 
-        0 0 1 1 0 0 1  1 0 0 0 0 0 0 1
-
         for(int i=0;i<lights.length;i++){
             if(i != lights.length-1){
                 String s = lights[i]+"";
