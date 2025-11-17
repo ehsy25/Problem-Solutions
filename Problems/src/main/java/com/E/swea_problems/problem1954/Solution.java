@@ -8,10 +8,8 @@ import java.io.FileInputStream;
    사용하는 클래스명이 Solution 이어야 하므로, 가급적 Solution.java 를 사용할 것을 권장합니다.
    이러한 상황에서도 동일하게 java Solution 명령으로 프로그램을 수행해볼 수 있습니다.
  */
-class Solution
-{
-    public static void main(String args[]) throws Exception
-    {
+class Solution {
+    public static void main(String args[]) throws Exception {
 		/*
 		   아래의 메소드 호출은 앞으로 표준 입력(키보드) 대신 input.txt 파일로부터 읽어오겠다는 의미의 코드입니다.
 		   여러분이 작성한 코드를 테스트 할 때, 편의를 위해서 input.txt에 입력을 저장한 후,
@@ -26,35 +24,48 @@ class Solution
 		 */
         Scanner sc = new Scanner(System.in);
         int T;
-        T=sc.nextInt();
+        T = sc.nextInt();
 		/*
 		   여러 개의 테스트 케이스가 주어지므로, 각각을 처리합니다.
 		*/
 
-        for(int test_case = 1; test_case <= T; test_case++)
-        {
+        for (int test_case = 1; test_case <= T; test_case++) {
 
-            int n =  sc.nextInt();
-            int [][] snail =  new int [n][n];
+            int n = sc.nextInt();
+            int[][] snail = new int[n][n];
+            int arrow = 0;
+            int count = 1;
+            int ni = 0;
+            int nj = 0;
+            int i = 0;
+            int j = 0;
 
-            boolean go = true;
-            for(int i = 0; i < n; i++){
-                Arrays.fill(snail[i],0);
+            int[] di = {0, 1, 0, -1};
+            int[] dj = {1, 0, -1, 0};
+
+//arr 범위 안에 있고
+            // 이미 값이 없는 경우에만
+            while (count <= n * n) {
+                if (0 <= i && i < n && 0 <= j && j < n) {
+                    if (snail[i][j] == 0) {
+                        snail[i][j] = count++;
+                        i = i + ni;
+                        j = j + nj;
+
+                        ni = di[arrow];
+                        nj = dj[arrow];
+                    }
+                } else
+                    arrow = (arrow + 1) % 4;
             }
-            int path = 1;
-
-            int x = 0;
-            int y = 0;
-            while(go){
-
-            for(int i = 0; i < n; i++){
-                for(int j = 0; j < n; j++){
-                    snail[i][j] = path++;
+            System.out.println("#" + test_case);
+            for (int row = 0; row < n; row++) {
+                for (int col = 0; col < n; col++) {
+                    System.out.print(snail[row][col]);
+                    if (col < n - 1) System.out.print(" ");
                 }
+                System.out.println();
             }
-
-            }
-
         }
     }
 }
