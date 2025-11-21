@@ -33,7 +33,7 @@ class Solution
                     totalHour++;
                 } else totalHour = 1;
             } else totalMin = (min1+min2);
-            
+
             System.out.println("#"+test_case +" "+ totalHour+" "+totalMin);
         }
     }
