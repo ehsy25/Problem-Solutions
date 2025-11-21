@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import java.io.FileInputStream;
 
-class Solution
+class solution
 {
     public static void main(String args[]) throws Exception
     {
