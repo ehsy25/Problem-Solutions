@@ -20,8 +20,10 @@ public class Main {
         }
 
         //특정 열을 기준으로 정렬
+        //근데 이걸로 하면 y값이 같을 때 x값 기준으로 정렬을 안함
         //Arrays.sort(cords, (x, y) -> Integer.compare(x[1],y[1]));
-        //
+
+        // 이렇게 3항 연사자를 사용해야함
         Arrays.sort(cords, (a, b) ->
                 a[1] != b[1] ? a[1] - b[1] : a[0] - b[0]
         );
