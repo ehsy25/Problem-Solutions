@@ -1,4 +1,4 @@
-package com.E.swea_problems.electric_car;
+package com.E.unsolved_problems.electric_car;
 
 import java.util.Arrays;
 import java.util.Scanner;

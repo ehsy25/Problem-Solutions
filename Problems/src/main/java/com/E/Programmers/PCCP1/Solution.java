@@ -43,6 +43,8 @@ public class Solution {
                     answer += stops[i]-buses[i];
                 }
             }
+
+
             System.out.println("#" + x + " " + answer);
         }
 
