@@ -35,13 +35,15 @@ public class Main {
             System.out.println();
             return;
         }
-            if(depth < m){
+
+
             for(int i = 1; i <= n; i++){
-            recursiveN[depth] = i;
+                if(v[i]) continue;
+
             v[i] = true;
-            re(depth++);
+            recursiveN[depth] = i;
+            re(depth+1);
             v[i] = false;   
             }
-        }
 }
 }
