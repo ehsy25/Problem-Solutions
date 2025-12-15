@@ -14,27 +14,36 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        int n = sc.nextInt(); // 물이 새는 곳의 개수
-        int l = sc.nextInt(); // 테이프의 길이
-        int[] leaks = new int[n + 1];
-        int count = 0;
+        int n = sc.nextInt();
+        String[] channels = new String[n];
+        int pointer = 0;
 
-        for (int i = 1; i <= n; i++) {
-            leaks[i] = sc.nextInt(); // 물이 새는 곳
+        for (int i = 0; i < n; i++) {
+            channels[i] = sc.nextLine();
         }
-
-        Arrays.sort(leaks);
-
-        int idx = 1;
-
-        while (idx <= n) {
-            count++;
-            double limit = leaks[idx] + l - 0.5;
-            while (idx <= n && leaks[idx] <= limit) {
-                idx++;
+        while (channels[0] != "KBS1" || channels[1] != "KBS2") {
+            if (channels[0] == "KBS1") {
+            } else {
+                while (channels[pointer] != "KBS1") {
+                    System.out.print(1);
+                    pointer++;
+                }
+            }
+            while (channels[0] != "KBS1") {
+                System.out.print(4);
+                pointer--;
+            }
+            if (channels[1] == "KBS2") {
+            } else {
+                while (channels[pointer] != "KBS2") {
+                    System.out.print(1);
+                    pointer++;
+                }
+            }
+            while (channels[0] != "KBS1") {
+                System.out.print(4);
+                pointer--;
             }
         }
-
-        System.out.println(count);
     }
 }
