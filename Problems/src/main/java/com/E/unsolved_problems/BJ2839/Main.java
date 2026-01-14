@@ -1,4 +1,4 @@
-package com.E;
+package com.E.unsolved_problems.BJ2839;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,27 +13,22 @@ public class Main {
         // System.setIn(new FileInputStream(
         // "C:\\Users\\Eric\\Documents\\PP\\Problem_Solutions\\Problems\\src\\main\\java\\com\\E\\input.txt"));
 
-        //BJ10829
-       // |A[0] - A[1]| + |A[1] - A[2]| + ... + |A[N-2] - A[N-1]|
+        //BJ2839 설탕 배달
 
         Scanner sc = new Scanner(System.in);
-        int n =  sc.nextInt();
-        int[] arr = new int[n];
+        int n = sc.nextInt();
+        int bags = 0;
 
-        for(int i = 0; i < n; i++){
-            arr[i] = sc.nextInt();
+        for(int i = n/5; i >= 0; i--) {
+            int rest = n - (i * 5);
+            if(rest % 3 == 0) {
+                bags = i + rest/3;
+                System.out.println(bags);
+                return;
+            }
         }
 
-        Arrays.sort(arr);
-        int[] ans = new int[n];
-
-        int i = 0;
-        while(i <= n-1){
-            ans [i] = arr[i];
-            ans[n-(i+1)] = arr[n-(i+1)];
-            i++;
-        }
-
+        System.out.println(-1);
 
     }
 }
