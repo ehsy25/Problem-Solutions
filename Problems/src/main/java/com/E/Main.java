@@ -4,8 +4,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.Stack;
-import java.util.StringTokenizer;
+
 
 public class Main {
 
@@ -13,22 +12,28 @@ public class Main {
         System.setIn(new FileInputStream(
                 "C:\\Users\\Eric\\Documents\\PP\\Problem-Solutions\\Problems\\src\\main\\java\\com\\E\\input.txt"));
 
-        //BJ10829
-
         Scanner sc = new Scanner(System.in);
-        int n =  sc.nextInt();
 
-        String proto = "";
-        while(n != 0){
-           if(n/2==0){
-               n = n/2;
-               proto += 1;
-           }
-           else {
-               n = n % 2;
-               proto += 1;
-           }
+        int n =  sc.nextInt();
+        int k =  sc.nextInt();
+        int[] temps = new int[n];
+
+        for(int i = 0; i < n; i++){
+            temps[i] = sc.nextInt();
         }
 
+        int max = Integer.MIN_VALUE;
+        int left = 0;
+        int right = k-1;
+        int sum = 0;
+        for(int i = 0; i < k; i++) {
+            sum += temps[i];
+        }
+        max = sum;
+        for(int i = k; i < n; i++) {
+            sum = sum - temps[i-k] + temps[i];
+            max = Math.max(max, sum);
+        }
+        System.out.println(max);
     }
 }
