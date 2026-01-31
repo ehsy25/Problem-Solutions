@@ -1,39 +1,34 @@
 package com.E;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Scanner;
-
 
 public class Main {
 
+    static long[] memo = new long[100];
     public static void main(String[] args) throws FileNotFoundException {
-        System.setIn(new FileInputStream(
-                "C:\\Users\\Eric\\Documents\\PP\\Problem-Solutions\\Problems\\src\\main\\java\\com\\E\\input.txt"));
+        // System.setIn(new FileInputStream(
+        //         "C:\\Users\\Eric\\Documents\\PP\\Problem-Solutions\\Problems\\src\\main\\java\\com\\E\\input.txt"));
 
         Scanner sc = new Scanner(System.in);
-
-        int n =  sc.nextInt();
-        int k =  sc.nextInt();
-        int[] temps = new int[n];
-
-        for(int i = 0; i < n; i++){
-            temps[i] = sc.nextInt();
-        }
-
-        int max = Integer.MIN_VALUE;
-        int left = 0;
-        int right = k-1;
-        int sum = 0;
-        for(int i = 0; i < k; i++) {
-            sum += temps[i];
-        }
-        max = sum;
-        for(int i = k; i < n; i++) {
-            sum = sum - temps[i-k] + temps[i];
-            max = Math.max(max, sum);
-        }
-        System.out.println(max);
+        int n = sc.nextInt();
+        long a = fibo(n);
+            System.out.println(a);
     }
+
+    private static long fibo(int n){              
+        if(n == 0){
+            return 0;
+        }
+        if(n == 1){
+            return 1;
+        }
+        if(memo[n] != 0){
+            return memo[n];
+        }
+        
+        memo[n] = fibo(n-1)+fibo(n-2);
+                    return memo[n];
+
+    }    
 }
