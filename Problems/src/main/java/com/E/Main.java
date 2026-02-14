@@ -1,34 +1,47 @@
 package com.E;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
-
-    static long[] memo = new long[100];
     public static void main(String[] args) throws FileNotFoundException {
-        // System.setIn(new FileInputStream(
-        //         "C:\\Users\\Eric\\Documents\\PP\\Problem-Solutions\\Problems\\src\\main\\java\\com\\E\\input.txt"));
+
+        System.setIn(new FileInputStream("C:\\Users\\Eric\\Documents\\PP\\Problem_Solutions\\Problems\\src\\main\\java\\com\\E\\input.txt"));
 
         Scanner sc = new Scanner(System.in);
+
         int n = sc.nextInt();
-        long a = fibo(n);
-            System.out.println(a);
+        int m = sc.nextInt();
+
+        int [][] a =  new int[n][m];
+        int [][] b = new int[n][m];
+        int [] [] c = new int[n][m];
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                b[i][j] = sc.nextInt();
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                c[i][j] = a[i][j] +  b[i][j];
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                System.out.print(c[i][j] + " ");
+            }
+        }
+
     }
 
-    private static long fibo(int n){              
-        if(n == 0){
-            return 0;
-        }
-        if(n == 1){
-            return 1;
-        }
-        if(memo[n] != 0){
-            return memo[n];
-        }
-        
-        memo[n] = fibo(n-1)+fibo(n-2);
-                    return memo[n];
-
-    }    
 }
