@@ -1,10 +1,11 @@
 package com.E.Baekjoon.BJ4344;
 
 import java.util.Scanner;
-
+import java.io.FileNotFoundException;
+import java.io.FileInputStream;
 public class Main {
-    public static void main(String[] args){
-        //System.setIn(new FileInputStream("src\\main\\java\\com\\E\\Baekjoon\\BJ4344\\input.txt"));
+    public static void main(String[] args) throws FileNotFoundException {
+        System.setIn(new FileInputStream("C:\\Users\\Eric\\Documents\\PP\\Problem-Solutions\\Problems\\src\\main\\java\\com\\E\\Baekjoon\\BJ4344\\input.txt"));
         Scanner sc = new Scanner (System.in);
         int c = sc.nextInt();
         for(int i = 0; i < c; i++){

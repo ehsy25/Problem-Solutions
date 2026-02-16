@@ -2,36 +2,46 @@ package com.E;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.Stack;
-import java.util.StringTokenizer;
 
 public class Main {
-
     public static void main(String[] args) throws FileNotFoundException {
-        // System.setIn(new FileInputStream(
-        // "C:\\Users\\Eric\\Documents\\PP\\Problem_Solutions\\Problems\\src\\main\\java\\com\\E\\input.txt"));
+
+        System.setIn(new FileInputStream("C:\\Users\\Eric\\Documents\\PP\\Problem_Solutions\\Problems\\src\\main\\java\\com\\E\\input.txt"));
 
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int count = 0;
-        while (n != 1) {
-            if (n % 3 == 0 ) {
-                n = n / 3;
-                count++;
-                System.out.println("n/3");
-            } else if (n % 2 == 0 && (n-1)%3 != 0) {
-                n = n / 2;
-                count++;
-                                System.out.println("n/2");
 
-            } else {
-                n -= 1;
-                count++;
-                                System.out.println("n-1");
+        int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        int [][] a =  new int[n][m];
+        int [][] b = new int[n][m];
+        int [] [] c = new int[n][m];
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                a[i][j] = sc.nextInt();
             }
         }
-        System.out.println(count);
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                b[i][j] = sc.nextInt();
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                c[i][j] = a[i][j] +  b[i][j];
+            }
+        }
+
+        for(int i=0;i<n;i++){
+            for(int j=0;j<m;j++){
+                System.out.print(c[i][j] + " ");
+            }
+        }
+
     }
+
 }
